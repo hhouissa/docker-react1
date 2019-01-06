@@ -25,4 +25,35 @@ git add .
 $ git commit -m "added travis file"
 git push origin master
 
-refresh travis
+refresh travis green!
+
+AWS:
+aws management consiole: aws dashboard. we will use elastik beanstalk
+it is the easiest to get started with docker single container
+EBS -> create new app : call it what you want ->create -> we will get an env
+web server -> base config: platform:docker -> sample app -> create
+get a url: test it:ok now we will feed it with real project : our docker-react1
+
+7.9 
+modify travis.yml
+add section deploy and use this line for params:
+All Applications  docker-react1  DockerReact1-env  Environment ID: e-icnmqmbrwh, URL: DockerReact1-env.quw5pv7dq3.us-east-2.elasticbeanstalk.com 
+bucket_name hard drive on aws: is the zip file trhat will have the code and poke elastikbeanstalk and tell it hey we have a new code to re-deploy
+
+aws: services -> search for S3
+Amazon S3/elasticbeanstalk-us-east-2-177161960668
+bucket_path is app name
+on:
+   branch:master means any time I push to master, it is time to deploy
+7-10 mention the 2 keys for automatic deploy
+AWS->Services->IAM->users (we will add user for ttravis-ci builds)->
+docker-react1-travis-ci
+programmatic access Only
+permissions: attach policies dirtectly : search beanstalk : full access
+get api keys:
+user: docker-react1-travis-ci 
+access key ID AKIAILP34RA5QYANVXLA
+Secret access key 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
+store them intravis: docker-react1- more-settings- env vars - 
+AWS_ACCESS_KEY and AWS_SECRET_KEY
+tell travis.yml to use those keys 

@@ -6,4 +6,17 @@ before_install:
  - docker build -t hhouissa/docker-react -f Dockerfile.dev .
  
 script:
- - docker run hhouissa/docker-react npm run test -- --coverage
+ - docker run hhouissa/docker-react npm run test -- --coverage 
+
+ deploy:
+  provider: elastikbeanstalk
+  region: "us-east-2"
+  app: "docker-react1"
+  env: "DockerReact1-env"
+  bucket_name: "elasticbeanstalk-us-east-2-177161960668"
+  bucket_path: "docker-react1"
+  on:
+   branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: 
+   secure: "$AWS_SECRET_KEY"
