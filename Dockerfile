@@ -1,5 +1,4 @@
-FROM node:alpine
-FROM nginx:1.13.3-alpine
+FROM node:alpine as builder
 WORKDIR '/app/'
 COPY package.json .
 RUN npm install
