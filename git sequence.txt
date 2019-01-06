@@ -63,3 +63,14 @@ git add. git commit -m "added travis deploy cfg" git push origin master
 Dckorefile for prod:
 FROM nginx
 EXPOSE 80: that doesn t do anything for us as developers but AWS needs it to know port to use
+
+
+Finally it works! 
+7.13 we have been working on master all the time.
+Now in real world many devs work on the same project. each one has his own branch
+
+git checkout -b feature
+in src/App.js change the /p from yahoo to I was changed on the feature branch
+git add .
+git commit -m "changed app text while in feature"
+git push origin feature
