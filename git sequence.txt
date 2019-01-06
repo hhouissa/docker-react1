@@ -11,3 +11,8 @@ sync -> refresh : voila! the new react1 project is in the list -> enable its swi
 
 create a new fiel on laptop for travis: .travis.yml
 commit the changes as we added travis.yml
+git add .
+$ git commit -m "added travis file"
+git push origin master
+
+refresh travis
