@@ -1,0 +1,9 @@
+sudo: required
+services:#we need docker
+ - docker
+ 
+before_install: #series of steps that need to run prior to our docker build tests deploy
+ - docker build -t hhouissa/docker-react -f Dockerfile.dev .
+
+script: #we will use this section to run our tests. To avoid waiting for ever for a prompt that weill never happen, we will add -- --coverage just after the npm run test command 
+ - docker run hhouissa/docker-react npm run test -- --coverage

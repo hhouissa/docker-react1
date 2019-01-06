@@ -1,0 +1,13 @@
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/hhouissa/docker-react1.git
+git push origin master
+
+
+Travis-CI
+travis-ci authorize connection to github account
+sync -> refresh : voila! the new react1 project is in the list -> enable its switch button
+
+create a new fiel on laptop for travis: .travis.yml
+commit the changes as we added travis.yml
