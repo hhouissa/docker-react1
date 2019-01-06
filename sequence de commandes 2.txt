@@ -1,0 +1,86 @@
+
+delete E:\Projects\reactproj\front-end\node_modules and all its contents because 
+docker will download and copy all that from docker hub according to our dockerfile.dev
+
+rerun the docker v=build:
+PS E:\Projects\reactproj\front-end> docker build -f Dockerfile.dev .
+Sending build context to Docker daemon  1.115MB
+Step 1/6 : FROM node:alpine
+ ---> 9036ebdbc59d
+Step 2/6 : WORKDIR '/app/'
+ ---> Using cache
+ ---> 1e95b0448422
+Step 3/6 : COPY package.json .
+ ---> Using cache
+ ---> 9b9ef7f7fd8f
+Step 4/6 : RUN npm install
+ ---> Using cache
+ ---> c359f8b34e2f
+Step 5/6 : COPY . .
+ ---> 8df5c9c55a0d
+Step 6/6 : CMD ["npm", "run", "start"]
+ ---> Running in b8bcab93ced6
+Removing intermediate container b8bcab93ced6
+ ---> 3c8819a5019d
+Successfully built 3c8819a5019d
+
+PS E:\Projects\reactproj\front-end> docker run -p 3000:3000 3c8819a5019d
+
+> front-end@0.1.0 start /app
+> react-scripts start
+
+Starting the development server...
+
+Compiled successfully!
+
+You can now view front-end in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://172.17.0.3:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+
+docker run -p 3000:3000
+
+PROBLEM edit E:\Projects\reactproj\front-end\src\App.js but changes not shown when refresh 
+http://localhost:3000/
+
+FIX:
+use Volumes !!!
+means there will be REFERENCES in docker container that maps to ,our laptop working directory
+E:\Projects\reactproj\front-end> docker run -p 3000:3000 -v $a:/app f508a6a216df
+Does NOT working becquse we deleted /app/node_modules so we put a bookmark on that folder
+
+Do it from git bash
+HaythemHouissa@HaythemPC MINGW64 /e/Projects/reactproj/front-end (master)
+$ docker run -p 3001:3000 -v /app/node_modules -v ${pwd}:/app f508a6a216df
+
+The problem is too many long commands...
+FIX: use docker-compose (see inside folder)
+a suivre 6-16
+6.16: execute tests:
+npm run test will override command of dev:
+1- re build the image: docker build -f Dockerfile.dev .
+2- docker run -it a943701112b3 npm run test voila we are interactive in running tests
+
+6-17: Live updating Tests
+when we modify App.test.js no changes are made on the fly
+so let's use docker-compose:
+docker-compose up
+then exec the test commands to that running container:
+docker ps
+8cb2f04042c3 
+docker exec -it 8cb2f04042c3 npm run test
+ PASS  src/App.test.js
+  ✓ renders without crashing (24ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+
+if we add a second it block inside App.test.js and hit enter on test running on second ps, it automatically updates with TWO tests;)
+ ==> That was the solution with docker-compose + docker exec
+ Next section we will see how to make it all in one file: docker-compose
+ 6-18: look at new service inside docker compose: problem we lost the interaction with test in opposition of exec -it approach
+ 6-19 

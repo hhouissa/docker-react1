@@ -1,0 +1,136 @@
+PS E:\Projects\reactproj\front-end> npm run test
+
+> front-end@0.1.0 test E:\Projects\reactproj\front-end
+> react-scripts test
+ PASS  src/App.test.js
+  √ renders without crashing (26ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        4.404s
+Ran all test suites related to changed files.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a test run.
+
+
+PS E:\Projects\reactproj\front-end> npm run build
+
+> front-end@0.1.0 build E:\Projects\reactproj\front-end
+> react-scripts build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  34.71 KB  build\static\js\1.fa92c112.chunk.js
+  763 B     build\static\js\runtime~main.229c360f.js
+  712 B     build\static\js\main.89024afd.chunk.js
+  510 B     build\static\css\main.23f51d52.chunk.css
+
+The project was built assuming it is hosted at the server root.
+You can control this with the homepage field in your package.json.
+For example, add this to build it for GitHub Pages:
+
+  "homepage" : "http://myname.github.io/myapp",
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  http://bit.ly/CRA-deploy
+
+PS E:\Projects\reactproj\front-end> ls
+
+
+    Directory: E:\Projects\reactproj\front-end
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        03-Jan-19  12:37 AM                build
+d-----        03-Jan-19  12:37 AM                node_modules
+d-----        03-Jan-19  12:27 AM                public
+d-----        03-Jan-19  12:27 AM                src
+-a----        26-Oct-85  10:15 AM            310 .gitignore
+-a----        03-Jan-19  12:27 AM         593584 package-lock.json
+-a----        03-Jan-19  12:27 AM            483 package.json
+-a----        26-Oct-85  10:15 AM           2881 README.md
+
+
+PS E:\Projects\reactproj\front-end> cd build
+PS E:\Projects\reactproj\front-end\build> ls
+
+
+    Directory: E:\Projects\reactproj\front-end\build
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        03-Jan-19  12:37 AM                static
+-a----        03-Jan-19  12:37 AM            779 asset-manifest.json
+-a----        26-Oct-85  10:15 AM           3870 favicon.ico
+-a----        03-Jan-19  12:37 AM           2062 index.html
+-a----        26-Oct-85  10:15 AM            306 manifest.json
+-a----        03-Jan-19  12:37 AM            606 precache-manifest.5a0f2d735518a0e79dbbc45128c6465c.js
+-a----        03-Jan-19  12:37 AM           1041 service-worker.js
+
+
+PS E:\Projects\reactproj\front-end\build> cd static
+PS E:\Projects\reactproj\front-end\build\static> ls
+
+
+    Directory: E:\Projects\reactproj\front-end\build\static
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        03-Jan-19  12:37 AM                css
+d-----        03-Jan-19  12:37 AM                js
+d-----        03-Jan-19  12:37 AM                media
+
+
+PS E:\Projects\reactproj\front-end\build\static> cd js
+PS E:\Projects\reactproj\front-end\build\static\js> ls
+
+
+    Directory: E:\Projects\reactproj\front-end\build\static\js
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        03-Jan-19  12:37 AM         112436 1.fa92c112.chunk.js
+-a----        03-Jan-19  12:37 AM         322072 1.fa92c112.chunk.js.map
+-a----        03-Jan-19  12:37 AM           1342 main.89024afd.chunk.js
+-a----        03-Jan-19  12:37 AM           7347 main.89024afd.chunk.js.map
+-a----        03-Jan-19  12:37 AM           1502 runtime~main.229c360f.js
+-a----        03-Jan-19  12:37 AM           7996 runtime~main.229c360f.js.map
+
+
+PS E:\Projects\reactproj\front-end\build\static\js> npm run start
+
+> front-end@0.1.0 start E:\Projects\reactproj\front-end
+> react-scripts start
+Starting the development server...
+
+http://localhost:3000/
+Compiled successfully!
+
+You can now view front-end in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://10.0.75.1:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
