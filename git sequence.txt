@@ -58,3 +58,8 @@ store them intravis: docker-react1- more-settings- env vars -
 AWS_ACCESS_KEY and AWS_SECRET_KEY
 tell travis.yml to use those keys 
 git add. git commit -m "added travis deploy cfg" git push origin master
+
+7.11: deployed to aws but no new page: port mapping missing
+Dckorefile for prod:
+FROM nginx
+EXPOSE 80: that doesn t do anything for us as developers but AWS needs it to know port to use
