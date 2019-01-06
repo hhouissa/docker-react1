@@ -57,3 +57,4 @@ Secret access key pMEfgeAy6iBfXObZP9zt3Qp8rJ/NNOa313ZAZJ9c
 store them intravis: docker-react1- more-settings- env vars - 
 AWS_ACCESS_KEY and AWS_SECRET_KEY
 tell travis.yml to use those keys 
+git add. git commit -m "added travis deploy cfg" git push origin master
